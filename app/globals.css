@@ -3,25 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --quest-cream: #fff8e7;
+  --quest-parchment: #f5e6c8;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-quest-cream text-quest-dark font-body text-xl antialiased;
+}
+
+/* Chunky pixel-style focus for keyboard nav */
+@layer base {
+  a:focus-visible {
+    @apply outline-none ring-2 ring-quest-gold ring-offset-2 ring-offset-quest-dark;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Title-screen shimmer without images */
+  .quest-title-glow {
+    text-shadow:
+      0 0 1px #2c1a0e,
+      2px 2px 0 #5c3d11,
+      4px 4px 0 #2c1a0e,
+      0 0 12px rgba(240, 192, 64, 0.45);
   }
 }
